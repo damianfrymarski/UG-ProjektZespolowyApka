@@ -1,16 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_main">
-
+    tools:showIn="@layout/app_bar_main"
+    android:minWidth="25px"
+    android:minHeight="25px">
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Hello World!" />
+        android:id="@+id/KcalText" 
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text = "Twoje Kcal: 2500"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/WeglowodanyText" 
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/KcalText"
+        android:text="Twoje Weglowodany: 250"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/BialkoText" 
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/WeglowodanyText"
+        android:text="Twoje Białko: 250"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TluszczText" 
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/BialkoText"
+        android:text="Twoje Tłuszcze: 250"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/KcalLeftText"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/TluszczText"
+        android:text = "Pozostałe Kcal Dzisiaj: 2500"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/WeglowodanyLeftText" 
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/KcalLeftText"
+        android:text="Pozostałe Weglowodany Dzisiaj: 250"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/BialkoLeftText" 
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/WeglowodanyLeftText"
+        android:text="Pozostałe Białko Dzisiaj: 250"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TluszczLeftText" 
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/BialkoLeftText"
+        android:text="Pozostałe Tłuszcze Dzisiaj: 250"/>
 
-</RelativeLayout>
+
+    </RelativeLayout>

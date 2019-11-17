@@ -14,8 +14,12 @@
             android:id="@+id/nav_history"
             android:title="Historia posilkow" />
         <item
-            android:id="@+id/nav_calculator"
+            android:id="@+id/nav_excercise"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Kalkulator cwiczen" />
+            android:title="Dodaj ćwiczenia" />
+      <item
+            android:id="@+id/nav_calc"
+            android:title="Oblicz dzienne kcal"
+        />
     </group>
 </menu>
