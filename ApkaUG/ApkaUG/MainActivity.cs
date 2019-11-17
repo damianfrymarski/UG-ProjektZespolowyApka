@@ -56,9 +56,9 @@ namespace ApkaUG
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             int id = item.ItemId;
-            if (id == Resource.Id.action_settings)
+            if (id == Resource.Id.log_in)
             {
-                return true;
+                StartActivity(typeof(LoginActivity));
             }
 
             return base.OnOptionsItemSelected(item);
@@ -75,29 +75,21 @@ namespace ApkaUG
         {
             int id = item.ItemId;
 
-            if (id == Resource.Id.nav_camera)
+            if (id == Resource.Id.nav_today)
             {
-                // Handle the camera action
+                StartActivity(typeof(TodayActivity));
             }
-            else if (id == Resource.Id.nav_gallery)
+            else if (id == Resource.Id.nav_add)
             {
-
+                StartActivity(typeof(AddMealActivity));
             }
-            else if (id == Resource.Id.nav_slideshow)
+            else if (id == Resource.Id.nav_history)
             {
-
+                StartActivity(typeof(HistoryActivity));
             }
-            else if (id == Resource.Id.nav_manage)
+            else if (id == Resource.Id.nav_calculator)
             {
-
-            }
-            else if (id == Resource.Id.nav_share)
-            {
-
-            }
-            else if (id == Resource.Id.nav_send)
-            {
-
+                StartActivity(typeof(WorkoutActivity));
             }
 
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
