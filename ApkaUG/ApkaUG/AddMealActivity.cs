@@ -9,6 +9,8 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Support.V4.View;
+using Android.Support.V4.Widget;
 
 namespace ApkaUG
 {
@@ -21,6 +23,7 @@ namespace ApkaUG
         EditText fatInput_view;
         EditText proteinInput_view;
         Button enter_button;
+        Button scan_button;
 
         float gramsInput;
         float multiplier;
@@ -42,6 +45,7 @@ namespace ApkaUG
             fatInput_view = FindViewById<EditText>(Resource.Id.fatInput);
             proteinInput_view = FindViewById<EditText>(Resource.Id.proteinInput);
             enter_button = FindViewById<Button>(Resource.Id.enter);
+            scan_button = FindViewById<Button>(Resource.Id.scan);
 
             // Pop-up info
             dialog = new AlertDialog.Builder(this);          
@@ -51,6 +55,20 @@ namespace ApkaUG
             {
                 OnButtonClicked();
             };
+
+            // On Click delegate
+            scan_button.Click += delegate
+            {
+                OnButtonScanClicked();
+            };
+
+        }
+
+        void OnButtonScanClicked()
+        {
+            StartActivity(typeof(ScannerActivity));
+            DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
+            //drawer.CloseDrawer(GravityCompat.Start);
         }
         void OnButtonClicked()
         {
