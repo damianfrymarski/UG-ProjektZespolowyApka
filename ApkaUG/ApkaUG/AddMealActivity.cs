@@ -85,7 +85,7 @@ namespace ApkaUG
             alert.SetMessage($"Zjadłeś {multiplier * kcalInput} kcal, " +
                 $"{multiplier * carbInput} węgli, " +
                 $"{multiplier * proteinInput} białka, " +
-                $"{multiplier * proteinInput} tłuszczy!"
+                $"{multiplier * fatInput} tłuszczy!"
                 );
             alert.SetButton("OK", (c, ev) =>
             {
