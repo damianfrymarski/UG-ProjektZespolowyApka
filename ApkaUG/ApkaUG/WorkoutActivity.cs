@@ -69,7 +69,7 @@ namespace ApkaUG
                 dbConnection = new SQLiteConnection(dbPath);
                 dbConnection.CreateTable<DBWorkout>();
 
-                workout = new DBWorkout(workout_name, kcal_burned, excercise_time, DateTime.Now.ToString());
+                workout = new DBWorkout(workout_name, kcal_burned + kcal_burned_ex * excercise_time, excercise_time, DateTime.Now.ToString());
                 dbConnection.Insert(workout);
 
                 // Pop-up info

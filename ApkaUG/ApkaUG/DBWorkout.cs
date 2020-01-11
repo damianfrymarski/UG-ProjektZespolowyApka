@@ -24,7 +24,7 @@ namespace ApkaUG
         public DBWorkout(string workoutName, float kcalBurned, float time, string date)
         {
             m_workoutName = workoutName;
-            m_kcalBurned = kcalBurned * time;
+            m_kcalBurned = kcalBurned;
             m_time = time;
             m_date = date;
         }
