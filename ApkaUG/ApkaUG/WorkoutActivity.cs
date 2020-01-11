@@ -9,12 +9,19 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.IO;
+using SQLite;
 
 namespace ApkaUG
 {
     [Activity(Label = "WorkoutActivity")]
     public class WorkoutActivity : Activity
     {
+        // DB
+        string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "jedzenie.db3");
+        SQLiteConnection dbConnection;
+        DBWorkout workout;
+
         // Layout variables
         EditText kcal_burned_view;
         EditText minutes_view;
@@ -27,6 +34,7 @@ namespace ApkaUG
         float kcal_burned;
         float kcal_burned_ex;
         float excercise_time;
+        string workout_name = "Bez Nazwy";
 
         Android.App.AlertDialog.Builder dialog;
 
@@ -58,6 +66,12 @@ namespace ApkaUG
                 if (!string.IsNullOrWhiteSpace(minutes_view.Text))
                     excercise_time = (float)Convert.ToDouble(minutes_view.Text);
 
+                dbConnection = new SQLiteConnection(dbPath);
+                dbConnection.CreateTable<DBWorkout>();
+
+                workout = new DBWorkout(workout_name, kcal_burned, excercise_time, DateTime.Now.ToString());
+                dbConnection.Insert(workout);
+
                 // Pop-up info
                 dialog = new AlertDialog.Builder(this);
                 AlertDialog alert = dialog.Create();
@@ -81,21 +95,27 @@ namespace ApkaUG
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            string toast = string.Format("Excercise: {0}", spinner.GetItemAtPosition(e.Position));    
+            string toast = string.Format("Excercise: {0}", spinner.GetItemAtPosition(e.Position));
+            dbConnection = new SQLiteConnection(dbPath);
+            dbConnection.CreateTable<DBWorkout>();
 
             switch (e.Position)
             {
                 case 0:
                     kcal_burned_ex = 19;
+                    workout_name = "Bieganie";
                     break;
                 case 1:
                     kcal_burned_ex = 25;
+                    workout_name = "Skakanie";
                     break;
                 case 2:
                     kcal_burned_ex = 32;
+                    workout_name = "Wyciskanie";
                     break;
                 case 3:
                     kcal_burned_ex = 6;
+                    workout_name = "Chodzenie";
                     break;
             }
             Toast.MakeText(this, toast, ToastLength.Long).Show();

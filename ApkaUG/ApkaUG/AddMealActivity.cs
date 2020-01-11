@@ -11,12 +11,19 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V4.View;
 using Android.Support.V4.Widget;
+using System.IO;
+using SQLite;
 
 namespace ApkaUG
 {
     [Activity(Label = "AddMealActivity")]
     public class AddMealActivity : Activity
     {
+        // DB
+        string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "jedzenie.db3");
+        SQLiteConnection dbConnection;
+        DBMeal meal;
+
         EditText gramsInput_view;
         EditText kcalInput_view;
         EditText carbInput_view;
@@ -96,9 +103,18 @@ namespace ApkaUG
 
             multiplier = gramsInput / 100;
 
+            dbConnection = new SQLiteConnection(dbPath);
+            dbConnection.CreateTable<DBMeal>();
+
+            meal = new DBMeal(gramsInput, kcalInput, carbInput, fatInput, proteinInput, DateTime.Now.ToString());
+            dbConnection.Insert(meal);
+
+            // For getting table:
+            // var table = dbConnection.Table<DBMeal>();
+
             AlertDialog alert = dialog.Create();
             alert.SetTitle("INFO");
-            alert.SetMessage($"Zjadłeś {multiplier * kcalInput} kcal, " +
+            alert.SetMessage($"Zjadłeś {multiplier * carbInput} kcal, " +
                 $"{multiplier * carbInput} węgli, " +
                 $"{multiplier * proteinInput} białka, " +
                 $"{multiplier * fatInput} tłuszczy!"
