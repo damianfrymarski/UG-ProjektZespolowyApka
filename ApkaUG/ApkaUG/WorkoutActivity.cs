@@ -96,8 +96,6 @@ namespace ApkaUG
         {
             Spinner spinner = (Spinner)sender;
             string toast = string.Format("Excercise: {0}", spinner.GetItemAtPosition(e.Position));
-            dbConnection = new SQLiteConnection(dbPath);
-            dbConnection.CreateTable<DBWorkout>();
 
             switch (e.Position)
             {

@@ -114,7 +114,7 @@ namespace ApkaUG
 
             AlertDialog alert = dialog.Create();
             alert.SetTitle("INFO");
-            alert.SetMessage($"Zjadłeś {multiplier * carbInput} kcal, " +
+            alert.SetMessage($"Zjadłeś {multiplier * kcalInput} kcal, " +
                 $"{multiplier * carbInput} węgli, " +
                 $"{multiplier * proteinInput} białka, " +
                 $"{multiplier * fatInput} tłuszczy!"
