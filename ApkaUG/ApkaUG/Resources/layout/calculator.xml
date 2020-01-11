@@ -16,7 +16,7 @@
         android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText1" />
+        android:id="@+id/weightInput" />
     <TextView
         android:text="Twój Wiek"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -27,7 +27,18 @@
         android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2" />
+        android:id="@+id/ageInput" />
+    <TextView
+        android:text="Twój wzrost w cm"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3" />
+    <EditText
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/heightInput" />
     <TextView
         android:text="Twoja płeć"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -45,12 +56,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mężczyzna"
-            android:id="@+id/radioButton2" />
+            android:id="@+id/man" />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Kobieta"
-            android:id="@+id/radioButton3" />
+            android:id="@+id/woman" />
     </RadioGroup>
     <TextView
         android:text="Chcesz"
@@ -68,13 +79,13 @@
         <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Schudnąć"
-            android:id="@+id/scan"
+            android:id="@+id/loss"
             android:layout_weight="1"/>
 
         <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Przytyć"
-            android:id="@+id/enter"
+            android:id="@+id/gain"
             android:layout_weight="1"/>
     </LinearLayout>     
 

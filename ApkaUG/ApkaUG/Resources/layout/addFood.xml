@@ -8,7 +8,7 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="Ilość produktu w g"
+        android:text="Ilość produktu w g/ml"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/gramsInput"/>
     <TextView
-        android:text="Ilość kcal na 100g"
+        android:text="Ilość kcal na 100g/ml"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/kcalInput"/>
     <TextView
-        android:text="Ilość węglowodanów na 100g"
+        android:text="Ilość węglowodanów na 100g/ml"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/carbInput"/>
     <TextView
-        android:text="Ilość tłuszczy na 100g"
+        android:text="Ilość tłuszczy na 100g/ml"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/fatInput"/>
     <TextView
-        android:text="Ilość białka na 100g"
+        android:text="Ilość białka na 100g/ml"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

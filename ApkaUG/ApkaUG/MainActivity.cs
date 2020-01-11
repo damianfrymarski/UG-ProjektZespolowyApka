@@ -72,11 +72,7 @@ namespace ApkaUG
         {
             int id = item.ItemId;
 
-            if (id == Resource.Id.nav_today)
-            {
-                StartActivity(typeof(TodayActivity));
-            }
-            else if (id == Resource.Id.nav_add)
+            if (id == Resource.Id.nav_add)
             {
                 StartActivity(typeof(AddMealActivity));
             }
@@ -88,7 +84,10 @@ namespace ApkaUG
             {
                 StartActivity(typeof(WorkoutActivity));
             }
-
+            else if (id == Resource.Id.nav_calc)
+            {
+                StartActivity(typeof(CalculatorActivity));
+            }
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             drawer.CloseDrawer(GravityCompat.Start);
             return true;

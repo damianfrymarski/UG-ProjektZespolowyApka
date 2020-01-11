@@ -73,11 +73,27 @@ namespace ApkaUG
         void OnButtonClicked()
         {
             // Values
-            gramsInput = (float)Convert.ToDouble(gramsInput_view.Text);
-            kcalInput = (float)Convert.ToDouble(kcalInput_view.Text);
-            carbInput = (float)Convert.ToDouble(carbInput_view.Text);
-            fatInput = (float)Convert.ToDouble(fatInput_view.Text); ;
-            proteinInput = (float)Convert.ToDouble(proteinInput_view.Text);
+            if (!string.IsNullOrWhiteSpace(gramsInput_view.Text))
+                gramsInput = (float)Convert.ToDouble(gramsInput_view.Text);
+            else
+                gramsInput = 0;
+            if (!string.IsNullOrWhiteSpace(kcalInput_view.Text))
+                kcalInput = (float)Convert.ToDouble(kcalInput_view.Text);
+            else
+                kcalInput = 0;
+            if (!string.IsNullOrWhiteSpace(carbInput_view.Text))
+                carbInput = (float)Convert.ToDouble(carbInput_view.Text);
+            else
+                carbInput = 0;
+            if (!string.IsNullOrWhiteSpace(fatInput_view.Text))
+                fatInput = (float)Convert.ToDouble(fatInput_view.Text);
+            else
+                fatInput = 0;
+            if (!string.IsNullOrWhiteSpace(proteinInput_view.Text))
+                proteinInput = (float)Convert.ToDouble(proteinInput_view.Text);
+            else
+                proteinInput = 0;
+
             multiplier = gramsInput / 100;
 
             AlertDialog alert = dialog.Create();

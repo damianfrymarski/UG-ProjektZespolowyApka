@@ -5,9 +5,6 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_today"
-            android:title="Dzisiejsze statystyki" />
-        <item
             android:id="@+id/nav_add"
             android:title="Dodaj posilek" />
         <item
