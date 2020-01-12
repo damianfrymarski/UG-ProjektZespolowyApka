@@ -17,7 +17,7 @@ using System.Collections.Generic;
 
 namespace ApkaUG
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener
     {
         string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "jedzenie.db3");
@@ -83,15 +83,15 @@ namespace ApkaUG
                 float protPercent = (float)Preferences.Get("prot", 0) / Preferences.Get("kcal", 0);
                 float fatPercent = (float)Preferences.Get("fat", 0) / Preferences.Get("kcal", 0);
 
-                workoutCarb = workoutSum * 0.6f;
-                workoutProt = workoutSum * 0.2f;
-                workoutFat = workoutSum * 0.2f;
-            }
-            else
-            {
                 workoutCarb = workoutSum * carbPercent;
                 workoutProt = workoutSum * protPercent;
                 workoutFat = workoutSum * fatPercent;
+            }
+            else
+            {
+                workoutCarb = workoutSum * 0.6f;
+                workoutProt = workoutSum * 0.2f;
+                workoutFat = workoutSum * 0.2f;
             }
 
 
