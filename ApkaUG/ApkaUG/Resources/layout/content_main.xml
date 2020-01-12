@@ -14,28 +14,28 @@
         android:layout_height="wrap_content"
         android:id="@+id/KcalText" 
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text = "Twoje Kcal: 2500"/>
+        android:text = "Twoje Dzienne Kcal: 2500"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/WeglowodanyText" 
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_below="@+id/KcalText"
-        android:text="Twoje Weglowodany: 250"/>
+        android:text="Twoje Dzienne Weglowodany: 250"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/BialkoText" 
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_below="@+id/WeglowodanyText"
-        android:text="Twoje Białko: 250"/>
+        android:text="Twoje Dzienne Białko: 250"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/TluszczText" 
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_below="@+id/BialkoText"
-        android:text="Twoje Tłuszcze: 250"/>
+        android:text="Twoje Dzienne Tłuszcze: 250"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,6 +64,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_below="@+id/BialkoLeftText"
         android:text="Pozostałe Tłuszcze Dzisiaj: 250"/>
-
+    z
 
     </RelativeLayout>

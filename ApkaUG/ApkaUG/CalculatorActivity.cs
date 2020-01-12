@@ -10,6 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
+using Xamarin.Essentials;
+
 namespace ApkaUG
 {
 
@@ -55,12 +57,20 @@ namespace ApkaUG
             gainButton.Click += delegate
             {
                 WeightGainCalculate();
+                Preferences.Set("kcal", kcal);
+                Preferences.Set("carb", carbCount);
+                Preferences.Set("prot", protCount);
+                Preferences.Set("fat", fatCount);
             };
 
             // On Click delegate
             lossButton.Click += delegate
             {
                 WeightLossCalculate();
+                Preferences.Set("kcal", kcal);
+                Preferences.Set("carb", carbCount);
+                Preferences.Set("prot", protCount);
+                Preferences.Set("fat", fatCount);
             };
         }
 
