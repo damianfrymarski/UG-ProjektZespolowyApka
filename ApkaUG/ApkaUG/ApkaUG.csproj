@@ -78,6 +78,7 @@
     <Compile Include="ScannerActivity.cs" />
     <Compile Include="TodayActivity.cs" />
     <Compile Include="WorkoutActivity.cs" />
+    <Compile Include="WorkoutHistory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

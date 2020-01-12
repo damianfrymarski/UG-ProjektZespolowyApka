@@ -12,8 +12,10 @@
             android:title="Historia posilkow" />
         <item
             android:id="@+id/nav_excercise"
-            android:icon="@drawable/ic_menu_manage"
             android:title="Dodaj ćwiczenia" />
+      <item
+            android:id="@+id/nav_workout_history"
+            android:title="Historia cwiczen" />
       <item
             android:id="@+id/nav_calc"
             android:title="Oblicz dzienne kcal"

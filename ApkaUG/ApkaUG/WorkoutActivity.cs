@@ -34,7 +34,7 @@ namespace ApkaUG
         float kcal_burned;
         float kcal_burned_ex;
         float excercise_time;
-        string workout_name = "Bez Nazwy";
+        string workout_name;
 
         Android.App.AlertDialog.Builder dialog;
 
@@ -59,9 +59,14 @@ namespace ApkaUG
             {
                 // Case gdzie poda od razu kcal spalone
                 if (!string.IsNullOrWhiteSpace(kcal_burned_view.Text))
+                {
                     kcal_burned = (float)Convert.ToDouble(kcal_burned_view.Text);
+                    workout_name = "Własne ćwiczenie";
+                }
                 else
+                {
                     kcal_burned = 0;
+                }
 
                 if (!string.IsNullOrWhiteSpace(minutes_view.Text))
                     excercise_time = (float)Convert.ToDouble(minutes_view.Text);

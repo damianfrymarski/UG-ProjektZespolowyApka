@@ -88,6 +88,10 @@ namespace ApkaUG
             {
                 StartActivity(typeof(CalculatorActivity));
             }
+            else if (id == Resource.Id.nav_workout_history)
+            {
+                StartActivity(typeof(WorkoutHistory));
+            }
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             drawer.CloseDrawer(GravityCompat.Start);
             return true;
