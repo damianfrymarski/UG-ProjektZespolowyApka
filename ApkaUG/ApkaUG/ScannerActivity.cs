@@ -19,6 +19,7 @@ using Android.Support.V7.App;
 using Android.Support.V4.App;
 using static Android.Gms.Vision.Detector;
 using Android.Graphics;
+using System.Globalization;
 
 namespace ApkaUG
 {
@@ -36,6 +37,11 @@ namespace ApkaUG
         TextView txtResult;
         List<string> logList;
         Vibrator vib;
+        Button btnApproved;
+        public static string kcalInput;
+        public static string carbInput;
+        public static string fatInput;
+        public static string proteinInput;
 
         const int RequestCameraPermissionID = 1001;
 
@@ -56,6 +62,7 @@ namespace ApkaUG
             cameraPreview = FindViewById<SurfaceView>(Resource.Id.cameraPreview);
             txtResult = FindViewById<TextView>(Resource.Id.txtResult);
             ListDataPos = FindViewById<ListView>(Resource.Id.lvListLog);
+            btnApproved = FindViewById<Button>(Resource.Id.btnApproved);
 
 
             logList = new List<string>();
@@ -80,7 +87,27 @@ namespace ApkaUG
             barcodeDetector.SetProcessor(this);
 
             Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
-            
+
+
+            // On Click delegate
+            btnApproved.Click += delegate
+            {
+                OnButtonApprovedClicked();
+            };
+
+            void OnButtonApprovedClicked()
+            {
+              
+                var intent = new Intent(this, typeof(AddMealActivity));
+                intent.PutExtra("kcalInput", kcalInput);
+                intent.PutExtra("carbInput", carbInput);
+                intent.PutExtra("fatInput", fatInput);
+                intent.PutExtra("proteinInput", proteinInput);
+                StartActivity(intent);
+                Finish();
+  
+            }
+
 
         }
 
@@ -96,7 +123,7 @@ namespace ApkaUG
             catch (Exception ex)
             {
 
-                Toast.MakeText(this, "Problem z połączeniem do bazy : ", ToastLength.Long).Show();
+                Toast.MakeText(this, "Problem z połączeniem do bazy : "+ex.Message.ToString(), ToastLength.Long).Show();
             }
 
 
@@ -174,7 +201,7 @@ namespace ApkaUG
                     cameraSource.Stop();
                     GetDataFromDB(txtResult.Text);
 
-              
+                    btnApproved.Visibility = Android.Views.ViewStates.Visible;
 
                 });
 
@@ -194,11 +221,14 @@ namespace ApkaUG
                
                 logList.Clear();
                 DataSet dsLogList = new DataSet();
+                
 
                 query = "Call GetItemData('" + ItemCode + "')";
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
                 adapter.Fill(dsLogList, "product_name");
+
+                DataTable dtProductValues = dsLogList.Tables["product_name"];
 
                 foreach (DataColumn col in dsLogList.Tables["product_name"].Columns)
                 {
@@ -212,7 +242,14 @@ namespace ApkaUG
                         logList[i] += " : " + row[i].ToString();
                 }
 
+                double Kcal;
+                // KJ to KCAL
+                Kcal = float.Parse( dtProductValues.Rows[0]["energia"].ToString(), CultureInfo.InvariantCulture.NumberFormat) * 0.2388;
 
+                kcalInput = Kcal.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
+                carbInput = dtProductValues.Rows[0]["weglowodany"].ToString();
+                fatInput = dtProductValues.Rows[0]["tluszcz"].ToString();
+                proteinInput = dtProductValues.Rows[0]["bialko"].ToString();
 
                 ArrayAdapter<string> adapterArray = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSelectableListItem, logList);
                 ListDataPos.Adapter = adapterArray;
@@ -225,5 +262,7 @@ namespace ApkaUG
 
 
         }
+
+
     }
 }

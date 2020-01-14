@@ -13,6 +13,7 @@ using Android.Support.V4.View;
 using Android.Support.V4.Widget;
 using System.IO;
 using SQLite;
+using System.Globalization;
 
 namespace ApkaUG
 {
@@ -69,35 +70,40 @@ namespace ApkaUG
                 OnButtonScanClicked();
             };
 
+            kcalInput_view.Text = Intent.GetStringExtra("kcalInput");
+            carbInput_view.Text = Intent.GetStringExtra("carbInput");
+            fatInput_view.Text = Intent.GetStringExtra("fatInput");
+            proteinInput_view.Text = Intent.GetStringExtra("proteinInput");
+
         }
 
         void OnButtonScanClicked()
         {
             StartActivity(typeof(ScannerActivity));
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-            //drawer.CloseDrawer(GravityCompat.Start);
+         
         }
         void OnButtonClicked()
         {
             // Values
             if (!string.IsNullOrWhiteSpace(gramsInput_view.Text))
-                gramsInput = (float)Convert.ToDouble(gramsInput_view.Text);
+                gramsInput = float.Parse(gramsInput_view.Text, CultureInfo.InvariantCulture.NumberFormat);
             else
                 gramsInput = 0;
-            if (!string.IsNullOrWhiteSpace(kcalInput_view.Text))
-                kcalInput = (float)Convert.ToDouble(kcalInput_view.Text);
+            if (!string.IsNullOrWhiteSpace(kcalInput_view.Text))           
+                kcalInput = float.Parse(kcalInput_view.Text, CultureInfo.InvariantCulture.NumberFormat);
             else
                 kcalInput = 0;
-            if (!string.IsNullOrWhiteSpace(carbInput_view.Text))
-                carbInput = (float)Convert.ToDouble(carbInput_view.Text);
+            if (!string.IsNullOrWhiteSpace(carbInput_view.Text))             
+                carbInput = float.Parse(carbInput_view.Text, CultureInfo.InvariantCulture.NumberFormat);
             else
                 carbInput = 0;
             if (!string.IsNullOrWhiteSpace(fatInput_view.Text))
-                fatInput = (float)Convert.ToDouble(fatInput_view.Text);
+                fatInput = float.Parse(fatInput_view.Text, CultureInfo.InvariantCulture.NumberFormat);
             else
                 fatInput = 0;
             if (!string.IsNullOrWhiteSpace(proteinInput_view.Text))
-                proteinInput = (float)Convert.ToDouble(proteinInput_view.Text);
+                proteinInput = float.Parse(proteinInput_view.Text, CultureInfo.InvariantCulture.NumberFormat);
             else
                 proteinInput = 0;
 

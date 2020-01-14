@@ -8,7 +8,7 @@
         android:layout_height="150px"
 		android:layout_centerInParent="false"
         android:id="@+id/logoVet"
-        android:src="@drawable/UG_Logo_PL"
+        android:src="@drawable/scanner"
         android:scaleType="fitCenter" />
 
     <SurfaceView
@@ -26,12 +26,25 @@
 		android:layout_below="@+id/cameraPreview"
         android:text="[ . . . ]" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@android:string/ok"
+        android:layout_below="@id/txtResult"
+        android:visibility="invisible"
+        android:id="@+id/btnApproved"/>
+ 
+
 	<ListView
 		android:minWidth="25px"
 		android:minHeight="25px"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:layout_below="@+id/txtResult"
+		android:layout_below="@id/btnApproved"
 		android:id="@+id/lvListLog" />
+
+
+
+
 
 </RelativeLayout>
