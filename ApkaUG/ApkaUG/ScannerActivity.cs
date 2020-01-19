@@ -225,10 +225,19 @@ namespace ApkaUG
 
                 query = "Call GetItemData('" + ItemCode + "')";
 
+           
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
                 adapter.Fill(dsLogList, "product_name");
 
+             
+                
                 DataTable dtProductValues = dsLogList.Tables["product_name"];
+
+                if (dtProductValues.Rows.Count == 0)
+                {
+                    Toast.MakeText(this, "brak itemu w bazie  " , ToastLength.Long).Show();
+                    return;
+                }
 
                 foreach (DataColumn col in dsLogList.Tables["product_name"].Columns)
                 {
