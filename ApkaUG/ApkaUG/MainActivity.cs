@@ -121,6 +121,22 @@ namespace ApkaUG
             FindViewById<TextView>(Resource.Id.WeglowodanyLeftText).Text = "Pozostałe Węglowodany Dzisiaj:" + todayCarb.ToString();
             FindViewById<TextView>(Resource.Id.BialkoLeftText).Text = "Pozostałe Białka Dzisiaj:" + todayProt.ToString();
             FindViewById<TextView>(Resource.Id.TluszczLeftText).Text = "Pozostałe Tłuszcze Dzisiaj:" + todayFat.ToString();
+            if (todayKcal < 0)
+                FindViewById<TextView>(Resource.Id.KcalLeftText).SetTextColor(Android.Graphics.Color.Red);
+            else
+                FindViewById<TextView>(Resource.Id.KcalLeftText).SetTextColor(Android.Graphics.Color.Black);
+            if (todayCarb < 0)
+                FindViewById<TextView>(Resource.Id.WeglowodanyLeftText).SetTextColor(Android.Graphics.Color.Red);
+            else
+                FindViewById<TextView>(Resource.Id.WeglowodanyLeftText).SetTextColor(Android.Graphics.Color.Black);
+            if (todayProt < 0)
+                FindViewById<TextView>(Resource.Id.BialkoLeftText).SetTextColor(Android.Graphics.Color.Red);
+            else
+                FindViewById<TextView>(Resource.Id.BialkoLeftText).SetTextColor(Android.Graphics.Color.Black);
+            if (todayFat < 0)
+                FindViewById<TextView>(Resource.Id.TluszczLeftText).SetTextColor(Android.Graphics.Color.Red);
+            else
+                FindViewById<TextView>(Resource.Id.TluszczLeftText).SetTextColor(Android.Graphics.Color.Black);
         }
         public override void OnBackPressed()
         {
